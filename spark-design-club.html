@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spark Design Club - Portfolio</title>
+  <meta name="description" content="Electromechanical Subteam Lead Executive at Spark Design Club.">
+  <link rel="icon" type="image/svg+xml" href="images/littlelogo.svg">
+  <style>
+    :root {
+      --bg: #0d0f12;
+      --surface: #16191e;
+      --surface-2: #1d2128;
+      --border: #2a2f38;
+      --text: #f5f7fa;
+      --muted: #9aa3b0;
+      --blue: #3b82f6;
+      --blue-bright: #60a5fa;
+      --blue-glow: rgba(59, 130, 246, .25);
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1100px, 100% - 40px);
+      margin-inline: auto;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      margin-bottom: 16px;
+    }
+
+    .eyebrow {
+      color: var(--blue-bright);
+      font-size: .85rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(13, 15, 18, .85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .logo img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .back {
+      color: var(--muted);
+      font-size: .95rem;
+      transition: color .2s;
+    }
+
+    .back:hover {
+      color: var(--blue-bright);
+    }
+
+    .hero {
+      padding: 80px 0 48px;
+      background: radial-gradient(600px 300px at 80% 0%, var(--blue-glow), transparent 70%);
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .hero-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      line-height: 1.15;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--blue-bright);
+    }
+
+    .content {
+      padding: 48px 0 24px;
+      max-width: 760px;
+    }
+
+    .lead {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      padding-top: 8px;
+    }
+
+    .lead .content {
+      padding: 0;
+      max-width: none;
+    }
+
+    .lead-figs {
+      display: grid;
+      gap: 20px;
+      align-content: start;
+    }
+
+    @media (max-width: 860px) {
+      .lead {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .content p {
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    .content p strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .skills li {
+      list-style: none;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: .85rem;
+      color: var(--blue-bright);
+    }
+
+    .skills-wrap {
+      margin-top: 36px;
+    }
+
+    .gallery-sec {
+      padding: 56px 0 96px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+      align-items: start;
+    }
+
+    figure {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color .25s, box-shadow .25s;
+    }
+
+    figure:hover {
+      border-color: var(--blue);
+      box-shadow: 0 12px 36px var(--blue-glow);
+    }
+
+    figure img {
+      width: 100%;
+      height: auto;
+      background: var(--surface-2);
+    }
+
+    figure.tall {
+      background: var(--surface-2);
+    }
+
+    figure.tall img {
+      width: auto;
+      max-width: 100%;
+      max-height: 480px;
+      margin: 0 auto;
+      padding: 12px 0 0;
+    }
+
+    figcaption {
+      padding: 12px 16px;
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    .cad-label {
+      color: var(--blue-bright);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo"><img src="images/littlelogo.svg" alt="">Sakanan Jeyakumar</a>
+      <a href="index.html#work" class="back">&larr; Back to projects</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <img class="hero-logo" src="images/8.jpg" alt="Spark Design Club logo">
+        <div>
+          <p class="eyebrow">Spark Design Club</p>
+          <h1>Electromechanical Subteam <em>Lead Executive</em></h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="container lead">
+      <div class="content">
+        <p>Spark Design Club is building an arcade, and it needs multiple <strong>300 mm linear mechanisms</strong> that
+          can actuate quickly under load without exceeding the cabinet's power budget. I am leading the
+          <strong>electromechanical subteam</strong> that is designing, building, and testing them.
+        </p>
+        <p>I prototyped rack-and-pinion and belt-driven designs in <strong>SolidWorks</strong>, driving each with
+          <strong>NEMA 17 steppers and worm gear motors</strong>. The worm gear motor running at <strong>400
+            RPM</strong>
+          allowed the mechanisms to rise at roughly <strong>25 cm/s</strong> with the payload attached, covering their
+          full 300 mm of travel in about <strong>1.2 seconds</strong>, and the worm gearing <strong>holds position at
+            rest without drawing current</strong>. I 3D printed and sourced the parts, then bench-tested each revision
+          for
+          travel speed and current draw.
+        </p>
+        <p>On the electrical side, I wrote the <strong>Arduino firmware</strong> that ties <strong>addressable LED
+            warning sequences</strong> to motor control and limit-switch feedback. I built and soldered the harness
+          myself
+          and verified every connection with a <strong>digital multimeter</strong> before integrating the motors, LEDs,
+          sensors, and control circuitry into a working system <strong>(power circuits)</strong>. I also
+          <strong>mentored a subteam member</strong> through
+          the development cycle - CAD, wiring, and firmware - so they could carry their own work through to a
+          finished assembly.
+        </p>
+
+        <div class="skills-wrap">
+          <p class="eyebrow">Skills</p>
+          <ul class="skills">
+            <li>Motor Controls</li>
+            <li>SolidWorks</li>
+            <li>LTSpice</li>
+            <li>3D Printing</li>
+            <li>Soldering</li>
+            <li>Power Circuits</li>
+            <li>Digital Multimeter</li>
+            <li>Arduino</li>
+            <li>LED Controls</li>
+            <li>Leadership</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lead-figs">
+        <figure class="tall"><img src="images/6.gif" alt="Belt driven actuator with worm gear motor prototype">
+          <figcaption><span class="cad-label">Prototype</span> - Belt Driven Actuator + Worm Gear</figcaption>
+        </figure>
+        <figure class="tall"><img src="images/rack.gif" alt="Rack and pinion actuator under test">
+          <figcaption><span class="cad-label">Test</span> - Rack and Pinion Actuator</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="gallery-sec">
+      <div class="container">
+        <p class="eyebrow">Gallery</p>
+        <h2>Design &amp; Prototyping</h2>
+        <div class="gallery">
+          <figure><img src="images/5.gif" alt="Belt driven actuator with stepper motor prototype" loading="lazy">
+            <figcaption><span class="cad-label">Prototype</span> - Belt Driven Actuator + Stepper</figcaption>
+          </figure>
+          <figure class="tall"><img src="images/6.gif" alt="Belt driven actuator with worm gear motor prototype"
+              loading="lazy">
+            <figcaption><span class="cad-label">Prototype</span> - Belt Driven Actuator + Worm Gear</figcaption>
+          </figure>
+          <figure class="tall"><img src="images/7.gif" alt="Belt driven actuator with worm gear motor prototype"
+              loading="lazy">
+            <figcaption><span class="cad-label">Prototype</span> - Belt Driven Actuator + Worm Gear</figcaption>
+          </figure>
+          <figure class="tall"><img src="images/rack.png" alt="Rack and pinion actuator driven by a worm gear motor"
+              loading="lazy">
+            <figcaption><span class="cad-label">Prototype</span> - Rack and Pinion + Worm Gear</figcaption>
+          </figure>
+          <figure class="tall"><img src="images/rack.gif" alt="Rack and pinion actuator under test" loading="lazy">
+            <figcaption><span class="cad-label">Test</span> - Rack and Pinion Actuator</figcaption>
+          </figure>
+          <figure><img src="images/1.jpg" alt="SolidWorks model of initial pillar design" loading="lazy">
+            <figcaption><span class="cad-label">CAD</span> - Initial Pillar Design</figcaption>
+          </figure>
+          <figure><img src="images/2.jpg" alt="SolidWorks model of bottle prototype" loading="lazy">
+            <figcaption><span class="cad-label">CAD</span> - Bottle Prototype</figcaption>
+          </figure>
+          <figure><img src="images/3.gif" alt="LED warning system animation" loading="lazy">
+            <figcaption><span class="cad-label">Prototype</span> - LED Warning System Animation</figcaption>
+          </figure>
+          <figure><img src="images/4.gif" alt="Warning animation test" loading="lazy">
+            <figcaption><span class="cad-label">Test</span> - Warning Animation</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main></body>
+
+</html>
