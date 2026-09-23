@@ -190,19 +190,16 @@
     }
 
     /* About */
-    #about {
-      padding-top: 56px;
-    }
-
     .about {
       display: grid;
-      grid-template-columns: 1fr 1.4fr;
+      grid-template-columns: 300px 1fr;
       gap: 56px;
       align-items: center;
     }
 
     .avatar {
       width: 100%;
+      max-width: 300px;
       aspect-ratio: 1;
       object-fit: cover;
       border-radius: var(--radius);
@@ -242,6 +239,10 @@
     }
 
     /* Projects */
+    #work {
+      padding-top: 56px;
+    }
+
     .projects {
       background: var(--surface);
       border-block: 1px solid var(--border);
@@ -357,8 +358,8 @@
     <nav class="container">
       <a href="#home" class="logo"><img src="images/littlelogo.svg" alt="">Sakanan Jeyakumar</a>
       <ul>
-        <li><a href="#about">About</a></li>
         <li><a href="#work">Projects/Work</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -373,61 +374,11 @@
             style="color:var(--text)">University
             of Toronto</strong>,
           minoring in
-          <strong style="color:var(--text)"> Robotics and Electronics.</strong>
+          <strong style="color:var(--text)"> Robotics and Mechatronics.</strong>
         </p>
         <div class="actions">
           <a href="#work" class="btn btn-primary">Projects/Work</a>
           <a href="#contact" class="btn btn-ghost">Contact</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container about">
-        <img class="avatar" src="images/pfp.png" alt="Sakanan Jeyakumar">
-        <div>
-          <h2>About Me</h2>
-          <p class="lead">I am an Electrical and Computer Engineering student with a deep passion for bringing physical
-            and
-            digital systems to life
-            through hands-on mechatronics, CADs, embedded firmware, and hardware prototyping.
-          </p>
-          <div class="skill-group">
-            <p class="skill-label">Hardware</p>
-            <ul class="skills">
-              <li>Circuit Design</li>
-              <li>PCB Design</li>
-              <li>Soldering</li>
-              <li>Oscilloscopes</li>
-              <li>Digital Multimeters</li>
-              <li>Arduino</li>
-              <li>3D Printing</li>
-              <li>Motor Controls</li>
-            </ul>
-          </div>
-          <div class="skill-group">
-            <p class="skill-label">Software</p>
-            <ul class="skills">
-              <li>Altium Designer</li>
-              <li>LTspice</li>
-              <li>SolidWorks</li>
-              <li>VS Code</li>
-              <li>Quartus Prime</li>
-              <li>ModelSim</li>
-              <li>KiCAD</li>
-              <li>Microsoft Office</li>
-            </ul>
-          </div>
-          <div class="skill-group">
-            <p class="skill-label">Languages</p>
-            <ul class="skills">
-              <li>C</li>
-              <li>C++</li>
-              <li>Python</li>
-              <li>RISC-V Assembly</li>
-              <li>Verilog</li>
-            </ul>
-          </div>
         </div>
       </div>
     </section>
@@ -494,6 +445,56 @@
                   Design</span><span>Oscilloscope</span></div>
             </div>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about">
+        <img class="avatar" src="images/pfp.png" alt="Sakanan Jeyakumar">
+        <div>
+          <h2>About Me</h2>
+          <p class="lead">I am an Electrical and Computer Engineering student with a deep passion for bringing physical
+            and
+            digital systems to life
+            through hands-on mechatronics, CADs, embedded firmware, and hardware prototyping.
+          </p>
+          <div class="skill-group">
+            <p class="skill-label">Hardware</p>
+            <ul class="skills">
+              <li>Circuit Design</li>
+              <li>PCB Design</li>
+              <li>Soldering</li>
+              <li>Oscilloscopes</li>
+              <li>Digital Multimeters</li>
+              <li>Arduino</li>
+              <li>3D Printing</li>
+              <li>Motor Controls</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <p class="skill-label">Software</p>
+            <ul class="skills">
+              <li>Altium Designer</li>
+              <li>LTspice</li>
+              <li>SolidWorks</li>
+              <li>VS Code</li>
+              <li>Quartus Prime</li>
+              <li>ModelSim</li>
+              <li>KiCAD</li>
+              <li>Microsoft Office</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <p class="skill-label">Languages</p>
+            <ul class="skills">
+              <li>C</li>
+              <li>C++</li>
+              <li>Python</li>
+              <li>RISC-V Assembly</li>
+              <li>Verilog</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
